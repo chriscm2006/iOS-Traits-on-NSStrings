@@ -18,19 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.segMentedControl removeAllSegments];
 
+    //Lets set up our segment.
     NSString* mySegmentLabel = @"Segment1";
+    mySegmentLabel.accessibilityTraits = UIAccessibilityTraitLink;
     mySegmentLabel.accessibilityLabel = @"This accessibility label will work, but it still has the trait of button, not a link!";
 
-    //This is also ignored, the first segment still has the trait of a button!
-    mySegmentLabel.accessibilityTraits = UIAccessibilityTraitLink;
-    [self.segMentedControl removeAllSegments];
     [self.segMentedControl insertSegmentWithTitle:mySegmentLabel atIndex:0 animated:NO];
     
+    //Let's setup a text field with a placeholder string
     NSString* myLabelText = @"Place Holder Text";
-    
     myLabelText.accessibilityLabel = @"This clearly does not work";
-    
     self.textField.placeholder = myLabelText;
 }
 
